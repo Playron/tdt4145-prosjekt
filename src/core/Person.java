@@ -1,5 +1,7 @@
+package core;
 
 public class Person {
+
 	
 //	private int profilID;
 	private String navn;
@@ -38,3 +40,5 @@ public class Person {
 		return personligForm;
 	}
 }
+
+
