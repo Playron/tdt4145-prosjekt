@@ -9,12 +9,20 @@ public class Person {
 	private int hvilepuls;
 	private int personligForm;
 	
+	public void setPerson(String navn, int vekt, int hvilepuls, int personligForm) {
+		setNavn(navn);
+		setVekt(vekt);
+		setHvilepuls(hvilepuls);
+		setPersonligForm(personligForm);
+	}
+	
 //	public void setProfilID(int profilID) {
 //		this.profilID = profilID;
 //	}
 //	public int getProfilID() {
 //		return profilID;
 //	}
+
 	public void setNavn(String navn) {
 		this.navn = navn;
 	}
