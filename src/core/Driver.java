@@ -1,3 +1,4 @@
+package core;
 import java.sql.*;
 public class Driver {
 
@@ -15,7 +16,7 @@ public class Driver {
 			statement.executeUpdate();
 		}
 		
-		
+		 
 		catch(Exception e){
 			System.out.println(e.getStackTrace());
 		}
