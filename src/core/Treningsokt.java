@@ -4,7 +4,7 @@ import java.sql.Date;
 import java.sql.Time;
 
 
-public class Treningsøkt {
+public class Treningsokt {
 	
 //	private int treningsøktID;
 	private Date dato;
@@ -13,11 +13,11 @@ public class Treningsøkt {
 	private int prestasjon;
 	private String notat;
 	
-//	public void setTreningsøktID(int treningsøktID) {
-//		this.treningsøktID = treningsøktID;
+//	public void setTreningsoktID(int treningsoktID) {
+//		this.treningsoktID = treningsoktID;
 //	}
-//	public int getTreningsøktID() {
-//		return treningsøktID;
+//	public int getTreningsoktID() {
+//		return treningsoktID;
 //	}
 	public void setDato(Date dato) {
 		this.dato = dato;
