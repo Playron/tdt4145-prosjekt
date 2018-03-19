@@ -9,7 +9,7 @@ public class Matprodukt {
 	private int protein;
 	private int kalori;
 	
-	public int getAntallCheeseBurgereIMaaltid(int kalori) {
+	public int getAntallCheeseBurgereIProdukt(int kalori) {
 		int antallCheeseburger = kalori/300;
 		return antallCheeseburger;
 	}
