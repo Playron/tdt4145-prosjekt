@@ -1,5 +1,6 @@
 package core;
 import java.sql.*;
+import java.text.DateFormat;
 import java.text.Format;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -13,7 +14,8 @@ public class Driver {
 		
 		
 		try {
-			leggTilApparat();
+			//leggTilApparat();
+			leggTilØvelse();
 			//Get connection to database
 			Connection myconn = DriverManager.getConnection(database, "pertest", "test");
 			
@@ -78,7 +80,7 @@ public class Driver {
 		
 	}
 	
-	public void leggTilØvelse() throws SQLException, ParseException {
+	public static void leggTilØvelse() throws SQLException, ParseException {
 		Scanner scanner = new Scanner(System.in);
 		Connection myconn = DriverManager.getConnection(database, "pertest", "test");
 		System.out.println("Connecting to Database:" + myconn.getCatalog() + "......");
@@ -88,25 +90,26 @@ public class Driver {
 		int treningsøktID = scanner.nextInt();
 		
 		
-		
-		SimpleDateFormat date = new SimpleDateFormat("yyyyMMdd");
-		System.out.println("Skriv inn Dato: (Form: yyyyMMdd) ");
-		Date parsed = (Date) date.parse(scanner.next());
-		java.sql.Date sql = new java.sql.Date(parsed.getTime());
+		//Date startDate = Date.getDate();
+		DateFormat date = new SimpleDateFormat("yyyy-MM-dd");
+		System.out.println("Skriv inn Dato: (Form: yyyy-MM-dd) ");
 		
 		
-		
-		System.out.println("Skriv inn tidspunkt: ");
 		System.out.println("Skriv inn varighet: ");
+		int varighet = scanner.nextInt();
 		System.out.println("Skriv inn prestasjon: ");
+		int prestasjon = scanner.nextInt();
 		System.out.println("Skriv inn notat: ");
+		String notat = scanner.next();
 		
 		
 		
-		PreparedStatement stmt = myconn.prepareStatement("INSERT INTO treningsøkt(treningsøktid, dato, tidspunkt, varighet, prestasjon, notat) VALUES(?,?,?,?,?,?)");
+		PreparedStatement stmt = myconn.prepareStatement("INSERT INTO treningsøkt(treningsøktid, dato, tidspunkt, varighet, prestasjon, notat) VALUES(?,?,SYSDATE,?,?,?)");
 		stmt.setInt(1, treningsøktID);
 		stmt.setDate(2, sql);
-		
+		stmt.setInt(4, varighet);
+		stmt.setInt(5, prestasjon);
+		stmt.setString(7, notat);
 		
 		
 	}
