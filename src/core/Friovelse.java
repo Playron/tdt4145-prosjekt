@@ -13,6 +13,7 @@ public class Friovelse extends Ovelse {
 	}
 
 	public String getBeskrivelse() {
+		this.beskrivelse = getStringFromDB("beskrivelse");
 		return beskrivelse;
 	}
 

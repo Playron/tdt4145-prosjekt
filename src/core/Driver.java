@@ -10,12 +10,54 @@ public class Driver {
 	static String database = "jdbc:mysql://localhost:3306/tdt4145prosjekt";
 	
 	
-	public static void main(String[] args) {
+
 		
 		
+		public static Connection getConnection() throws SQLException {
+			String url = "jdbc:mysql://mysql.stud.ntnu.no:3306/fredridn_gr33?autoReconnect=true&useSSL=false";
+			String user = "fredridn";
+			String password = "gr33";
+			Connection myConn = DriverManager.getConnection(url, user, password);
+			return myConn;
+		}
+		// Her etableres koblingen til v�r eksterne database.
+
+		public Statement establishConnection() {
+			try {
+				String url = "jdbc:mysql://mysql.stud.ntnu.no:3306/fredridn_gr33?autoReconnect=true&useSSL=false";
+				String user = "fredridn";
+				String password = "gr33";
+
+				Connection myConn = DriverManager.getConnection(url, user, password);
+
+				Statement myStmt = myConn.createStatement();
+
+				return myStmt;
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
+
+		public PreparedStatement preparedStatementEstablishConnection() {
+			try {
+				String url = "jdbc:mysql://mysql.stud.ntnu.no:3306/fredridn_gr33?autoReconnect=true&useSSL=false";
+				String user = "fredridn";
+				String password = "gr33";
+				Connection conn = DriverManager.getConnection(url, user, password);
+
+				PreparedStatement myStmt = (PreparedStatement) conn.createStatement();
+
+				return myStmt;
+			} catch (Exception e) {
+				System.out.println(e);
+				return null;
+			}
+		}
+		public static void main(String[] args) {
 		try {
 			//leggTilApparat();
-			leggTilØvelse();
+			leggTilOvelse();
 			//Get connection to database
 			Connection myconn = DriverManager.getConnection(database, "pertest", "test");
 			
@@ -80,14 +122,14 @@ public class Driver {
 		
 	}
 	
-	public static void leggTilØvelse() throws SQLException, ParseException {
+	public static void leggTilOvelse() throws SQLException, ParseException {
 		Scanner scanner = new Scanner(System.in);
 		Connection myconn = DriverManager.getConnection(database, "pertest", "test");
 		System.out.println("Connecting to Database:" + myconn.getCatalog() + "......");
 		System.out.println("Connection is established!");
 		
-		System.out.println("Skriv inn treningsøktID: ");
-		int treningsøktID = scanner.nextInt();
+		System.out.println("Skriv inn treningsOktID: ");
+		int treningsOktID = scanner.nextInt();
 		
 		
 		//Date startDate = Date.getDate();
@@ -105,7 +147,7 @@ public class Driver {
 		
 		
 		PreparedStatement stmt = myconn.prepareStatement("INSERT INTO treningsøkt(treningsøktid, dato, tidspunkt, varighet, prestasjon, notat) VALUES(?,?,SYSDATE,?,?,?)");
-		stmt.setInt(1, treningsøktID);
+		stmt.setInt(1, treningsOktID);
 		stmt.setDate(2, sql);
 		stmt.setInt(4, varighet);
 		stmt.setInt(5, prestasjon);

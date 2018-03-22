@@ -32,6 +32,7 @@ public class Treningsokt {
 	}
 
 	public Date getDato() {
+		this.dato = getIntegerFromDB("dato");
 		return dato;
 	}
 
@@ -40,6 +41,7 @@ public class Treningsokt {
 	}
 
 	public Time getTid() {
+		this.tid = getIntegerFromDB("tid");
 		return tid;
 	}
 
@@ -48,6 +50,7 @@ public class Treningsokt {
 	}
 
 	public int getVarighet() {
+		this.varighet = getIntegerFromDB("varighet");
 		return varighet;
 	}
 
@@ -56,14 +59,17 @@ public class Treningsokt {
 	}
 
 	public int getPrestasjon() {
+		this.prestasjon = getIntegerFromDB("prestasjon");
 		return prestasjon;
 	}
 
 	public void setNotat(String notat) {
+		this.notat = getIntegerFromDB("notat");
 		this.notat = notat;
 	}
 
 	public String getNotat() {
+		this.notat = getStringFromDB("notat");
 		return notat;
 	}
 }

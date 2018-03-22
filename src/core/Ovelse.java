@@ -20,6 +20,7 @@ public class Ovelse {
 	}
 
 	public String getNavn() {
+		this.navn = getStringFromDB("navn");
 		return navn;
 	}
 }

@@ -21,6 +21,7 @@ public class Ovelsegruppe {
 	}
 
 	public String getNavn() {
+		this.navn = getStringFromDB("navn");
 		return navn;
 	}
 

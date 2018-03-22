@@ -1,11 +1,18 @@
 package core;
 
+import java.sql.ResultSet;
+
 public class Apparat {
 	// private int apparatID;
 	private String navn;
 	private String beskrivelse;
+	SqlQueries sql = new SqlQueries();
 
 	public Apparat(String navn, String beskrivelse) {
+		String guery = "INSERT INTO `simeba_pu_gr7`.`Apparat` (`navn`, `beskrivelse`) values ('" + navn + "', '"
+				+ beskrivelse + "');";
+
+		sql.query.pushToDB(sql);
 		setNavn(navn);
 		setBeskrivelse(beskrivelse);
 	}
@@ -21,6 +28,7 @@ public class Apparat {
 	}
 
 	public String getNavn() {
+		this.navn = getStringFromDB("navn");
 		return navn;
 	}
 
@@ -29,6 +37,7 @@ public class Apparat {
 	}
 
 	public String getBeskrivelse() {
+		this.beskrivelse = getStringFromDB("beskrivelse");
 		return beskrivelse;
 	}
 

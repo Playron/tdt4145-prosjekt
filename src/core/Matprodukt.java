@@ -19,10 +19,12 @@ public class Matprodukt {
 
 	}
 	public int getKalori() {
+		this.kalori = getIntegerFromDB("kalori");
 		return kalori;
 	}
 
 	public int getMatProduktID() {
+		this.matProduktID = getIntegerFromDB("matproduktid");
 		return matProduktID;
 	}
 
@@ -39,6 +41,7 @@ public class Matprodukt {
 	}
 
 	public int getKarbohydrat() {
+		this.karbohydrat = getIntegerFromDB("karbohydrat");
 		return karbohydrat;
 	}
 
@@ -47,6 +50,7 @@ public class Matprodukt {
 	}
 
 	public int getFett() {
+		this.fett = getIntegerFromDB("fett");
 		return fett;
 	}
 
@@ -55,6 +59,7 @@ public class Matprodukt {
 	}
 
 	public int getProtein() {
+		this.protein = getIntegerFromDB("protein");
 		return protein;
 	}
 

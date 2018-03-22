@@ -3,6 +3,7 @@ package core;
 public class Person {
 
 	// private int profilID;
+	private int personID;
 	private String navn;
 	private int vekt;
 	private int hvilepuls;
@@ -21,6 +22,13 @@ public class Person {
 	// public int getProfilID() {
 	// return profilID;
 	// }
+	public int getPersonID() {
+		return personID;
+	}
+
+	public void setPersonID(int personID) {
+		this.personID = personID;
+	}
 
 	public void setNavn(String navn) {
 		this.navn = navn;

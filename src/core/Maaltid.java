@@ -6,6 +6,7 @@ public class Maaltid {
 	private Date dato;
 
 	public Date getDato() {
+		this.dato = getIntegerFromDB("dato");
 		return dato;
 	}
 

@@ -7,6 +7,7 @@ public class OvelseIOkt {
 	private int kilo;
 
 	public Ovelse getOvelse() {
+		this.ovelse = getStringFromDB("ovelse");
 		return ovelse;
 	}
 
@@ -15,6 +16,7 @@ public class OvelseIOkt {
 	}
 
 	public int getReps() {
+		this.reps = getStringFromDB("reps");
 		return reps;
 	}
 
@@ -23,6 +25,7 @@ public class OvelseIOkt {
 	}
 
 	public int getSet() {
+		this.set = getStringFromDB("set");
 		return set;
 	}
 
@@ -31,6 +34,7 @@ public class OvelseIOkt {
 	}
 
 	public int getKilo() {
+		this.kilo = getStringFromDB("kilo");
 		return kilo;
 	}
 
